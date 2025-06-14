@@ -14,14 +14,14 @@ jobs:
       - name: Checkout Kode
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0 
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '18' 
 
-      - name: Jalankan Tes Unit
+      - name: Jalankan Tes Unit 
         run: |
           echo "Menjalankan tes unit kalkulator..."
           node tests/calculator.test.js
@@ -39,9 +39,8 @@ jobs:
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
 
-      - name: Analisis SonarCloud
-        uses: SonarSource/sonarcloud-github-action@master
-        continue-on-error: true
+      - name: Analisis SonarCloud (Continuous Inspection)
+        uses: SonarSource/sonarcloud-github-action@master 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -68,9 +67,9 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile/Dockerfile
+          file: ./Dockerfile/ Dockerfile
           push: false
-          tags: local/kalkulator-cicd:latest
+          tags: local/kalkulator-cicd:latest 
 
   deploy-to-github-pages:
     name: Deploy ke GitHub Pages
@@ -88,3 +87,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
+
