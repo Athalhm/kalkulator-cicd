@@ -1,4 +1,4 @@
-name: Kalkulator CI/CD Pipeline
+name: Kalkulator CI/CD Pipeline 
 
 on:
   push:
